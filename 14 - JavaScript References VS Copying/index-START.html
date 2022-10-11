@@ -8,10 +8,22 @@
 
   <script>
     // start with strings, numbers and booleans
+// let age='wes'
+// let age2=age
+// // age=200
+// console.log(age,age2);
+
 
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
+
+    const team=players
+    console.log(players,team);
+
+    // team[3]='lux'
+    const team2=players.slice()
+    console.log(team2);
     // and we want to make a copy of it.
 
     // You might think we can just do something like this:
@@ -41,12 +53,39 @@
       name: 'Wes Bos',
       age: 80
     };
+//  多了一个属性
+    // const captain = person
+    //  captain.numbers=99
+    //  console.log(captain);
 
+    //  Object.assign() 方法将所有可枚举（Object.propertyIsEnumerable() 返回 true）的自有（Object.hasOwnProperty() 返回 true）属性从一个或多个源对象复制到目标对象，返回修改后的对象。
     // and think we make a copy:
 
     // how do we take a copy instead?
+  //  后者s（可以存在多个s 一起合并）  前者是target  目的是修改target 返回的对象和target是一样的  覆盖
+
+    const cap2=Object.assign({},person,{number:99,age:12})
+    console.log(cap2);
 
     // We will hopefully soon see the object ...spread
+    const wes = {
+      name: 'Wes',
+      age: 100,
+      social: {
+        twitter: '@wesbos',
+        facebook: 'wesbos.developer'
+      }
+    };
+
+  
+    console.log(wes);
+
+    const dev = Object.assign({}, wes);
+// 将js对象变成json 然后又变回js对象实现拷贝  属于是新建一个对象了  在后续修改的时候不会变化了
+    const dev2 = JSON.parse(JSON.stringify(wes));
+//   第二个深拷贝不会变化
+    dev.name1='luohao'
+    console.log(dev,dev2);
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 
