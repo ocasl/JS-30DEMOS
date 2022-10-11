@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Console Tricks!</title>
 </head>
+
 <body>
 
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
@@ -19,9 +21,18 @@
 
     // Regular
 
+    console.log("%s", 'dsadas');
+    console.log("%d", '1.2123165');
+    console.log("%f", '1.23');
+    console.log("%c不同样式的输出效果", "color: #00fdff; font-size: 2em;");
     // Interpolated
+    console.warn('dasda');
+    console.error('dasda');
+    console.info('dasda');
+
 
     // Styled
+
 
     // warning!
 
@@ -31,6 +42,9 @@
 
     // Testing
 
+    const p = document.querySelector('p');
+    console.log(p);
+    console.dir(p);
     // clearing
 
     // Viewing DOM Elements
@@ -40,7 +54,15 @@
     // counting
 
     // timing
+    console.time('fetch my data');
+    fetch("https://api.github.com/users/soyaine")
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetch my data');
+        console.log(data);
+      });
 
   </script>
 </body>
+
 </html>
